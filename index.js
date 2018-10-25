@@ -23,7 +23,29 @@ client.on('ready', () => {
   
   
   
-  
+  client.on('message',async msg => {//Alpha Codes
+//Alpha Codes//Alpha Codes//Alpha Codes//Alpha Codes//Alpha Codes
+  var prefix = "-";//Alpha Codes
+//Alpha Codes
+  if(msg.content.startsWith(prefix + "user")) {//Alpha Codes
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
+  msg.guild.createChannel(`يتم تحضير الروم :[]` , 'voice').then(time => {
+    time.overwritePermissions(msg.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+  setInterval(() => {
+      var currentTime = new Date(),
+Year = currentTime.getFullYear(),
+Month = currentTime.getMonth() + 1,
+Dat = currentTime.getDate()//Alpha Codes
+      time.setName(`Members : ◤ → ${client.users.size} ← ◢`);
+ },1000);
+  });//Alpha Codes
+  }
+ 
+});
   
   
   
@@ -34,12 +56,16 @@ client.on('ready', () => {
          .setColor("#00FF00")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**Help|هيلب
-
+By:RO7
        -bc2 | لأرسال برود كاست للكل
 
        -bc3  |  لأرسال برود كاست للأونلاين
 
        -autoc | رول برياكشن
+
+       -user | يسويلك روم بعدد الاعضاء
+      
+       
 
        -pbc | برودكاست بصورة
        * `)
