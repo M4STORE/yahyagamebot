@@ -1,8 +1,6 @@
 
  
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+
 
 if(!Discord) var Discord = require('discord.js');
 if(!client) var client = new Discord.Client();
@@ -11,7 +9,9 @@ if(!prefix) var prefix = "-" ; // البرفكس
 var stopReacord = true;
 var reactionRoles = [];
 var definedReactionRole = null;
-
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 client.on("message", async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
