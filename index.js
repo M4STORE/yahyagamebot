@@ -1,4 +1,4 @@
-
+const Canvas = require("canvas");
  
 
 
@@ -12,6 +12,40 @@ var definedReactionRole = null;
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
+ client.on('message', msg => {
+    if(msg.content === '-help')
+    msg.reply('Check Your DMs :white_check_mark:')
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  client.on("message", message => {
+    if (message.content === "-help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**Help|هيلب
+
+       -bc2 | لأرسال برود كاست للكل
+
+       -bc3  |  لأرسال برود كاست للأونلاين
+
+       -autoc | رول برياكشن
+
+       -pbc | برودكاست بصورة
+       * `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
+
 client.on("message", message => {
   if (message.author.bot) return;
     if(!message.channel.guild) return;
