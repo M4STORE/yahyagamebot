@@ -21,7 +21,34 @@ client.on('ready', () => {
   
   
   
-  
+  client.on('message',message =>{
+    var prefix = "+";
+    if(message.content.startsWith(prefix + 'topinv')) {
+  message.guild.fetchInvites().then(i =>{
+  var invites = [];
+   
+  i.forEach(inv =>{
+    var [invs,i]=[{},null];
+     
+    if(inv.maxUses){
+        invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
+    }else{
+        invs[inv.code] =+ inv.uses;
+    }
+        invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
+   
+  });
+  var embed = new Discord.RichEmbed()
+  .setColor("#000000")
+  .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
+  .setThumbnail("https://cdn.discordapp.com/avatars/480407581085532180/3cccb5f095327fb9bdc238dded1772f8.png?size=2048")
+  .setFooter("By:RO7")
+           message.channel.send({ embed: embed });
+   
+  });
+   
+    }
+  });
   
   client.on('message',async msg => {//Alpha Codes
 //Alpha Codes//Alpha Codes//Alpha Codes//Alpha Codes//Alpha Codes
@@ -381,8 +408,20 @@ By:RO7
 
        -user | يسويلك روم بعدد الاعضاء
       
-       
+       -حب  
 
+       -خواطر
+       
+       -صراحة
+       
+       -لوخيروك
+       
+       -عقاب
+       
+       -مريم
+       
+       -كتويت
+       
        -pbc | برودكاست بصورة
        * `)
    message.author.sendEmbed(embed)
