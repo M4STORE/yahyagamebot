@@ -22,7 +22,7 @@ client.on('ready', () => {
   
   
   client.on('message',message =>{
-    var prefix = "+";
+    var prefix = "-";
     if(message.content.startsWith(prefix + 'topinv')) {
   message.guild.fetchInvites().then(i =>{
   var invites = [];
@@ -399,7 +399,7 @@ const zead = [
          .setColor("#00FF00")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**Help|هيلب
-By:RO7
+              تم تصميم البوت من قبل RO7#9078
        -bc2 | لأرسال برود كاست للكل
 
        -bc3  |  لأرسال برود كاست للأونلاين
@@ -422,6 +422,8 @@ By:RO7
        
        -كتويت
        
+       -topinv | افضل شخص دخل ناس
+
        -pbc | برودكاست بصورة
        * `)
    message.author.sendEmbed(embed)
